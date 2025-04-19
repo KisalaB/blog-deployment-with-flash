@@ -96,7 +96,7 @@ def register():
             user.name = name
             user.email = email
             user.password = password
-            user.is_admin = (True if email == "jameskisala@gmail.com" else False)
+            user.is_admin = (True if email ==os.environ.get('ADMIN') else False)
             db.session.add(user)
             db.session.commit()
             flash('Account created successfully!', 'success')
